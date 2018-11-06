@@ -9,4 +9,24 @@ from .models import Project, Service, Value
 LogEntry.objects.all().delete()
 # Above line should be commented while migrating
 
-admin.site.register([Project, Service, Value])
+
+class ProjectAdmin(admin.ModelAdmin):
+    # define which columns should be displayed
+    list_display = ('created_at', 'name', 'power_in', 'power_out', 'energy')
+
+
+class ServiceAdmin(admin.ModelAdmin):
+    # define which columns should be displayed
+    list_display = ('created_at', 'project', 'mode')
+
+
+class ValueAdmin(admin.ModelAdmin):
+    # define which columns should be displayed
+    list_display = ('created_at', 'name', 'formula', 'file')
+
+
+# This will register my models to admin
+admin.site.register(Project, ProjectAdmin)
+admin.site.register(Service, ServiceAdmin)
+admin.site.register(Value, ValueAdmin)
+# Note: To enable list_display I have to register admin-name too
