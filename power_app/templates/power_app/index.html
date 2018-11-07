@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <title>Power Management</title>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        body {
+        font-family: "Open Sans", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5em;
+        font-weight: 400;
+        }
+        p, span, a, ul, li, button {
+          font-family: inherit;
+          font-size: inherit;
+          font-weight: inherit;
+          line-height: inherit;
+        }
+        strong {
+          font-weight: 600;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-family: "Open Sans", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+          line-height: 1.5em;
+          font-weight: 300;
+        }
+        strong {
+          font-weight: 400;
+        }
+        .tile {
+          width: 100%;
+          display: inline-block;
+          box-sizing: border-box;
+          background: #fff;
+          padding: 20px;
+          margin-bottom: 10px;
+        }
+        .tile .title {
+          margin-top: 0px;
+        }
+        .tile.purple, .tile.blue, .tile.red, .tile.orange, .tile.green {
+          color: #fff;
+        }
+        .tile.purple {
+          background: #5133AB;
+        }
+        .tile.purple:hover {
+          background: #3e2784;
+        }
+        .tile.red {
+          background: #AC193D;
+        }
+        .tile.red:hover {
+          background: #7f132d;
+        }
+        .tile.green {
+          background: #00A600;
+        }
+        .tile.green:hover {
+          background: #007300;
+        }
+        .tile.blue {
+          background: #2672EC;
+        }
+        .tile.blue:hover {
+          background: #125acd;
+        }
+        .tile.orange {
+          background: #DC572E;
+        }
+        .tile.orange:hover {
+          background: #b8431f;
+        }
+    </style>
+
+</head>
+
+<body>
+    <br>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h1>Power Management</h1></div>
+            <div class="panel-body">
+                <table>
+                    <tr>
+                        <th><h4><b>SR.NO.</b></h4></th>
+                        <th><h4><b>PROJECT NAME</b></h4></th>
+                        <th><h4><b>DURATION</b></h4></th>
+                        <th><h4><b>POWER IN</b></h4></th>
+                        <th><h4><b>POWER OUT</b></h4></th>
+                        <th><h4><b>ENEREGY</b></h4></th>
+                    </tr>
+                    <tr>
+                        <td><h4>1</h4></td>
+                        <td><h4>Project 1</h4></td>
+                        <td><h4>30</h4></td>
+                        <td><h4>10</h4></td>
+                        <td><h4>20</h4></td>
+                        <td><h4>100</h4></td>
+                    </tr>
+                </table>
+                <br>
+
+
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1><strong>Service List:</strong></h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile blue">
+                            <h3 class="title">Service 1</h3>
+                            <p>Mode 1</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile blue">
+                            <h3 class="title">Service 2</h3>
+                            <p>Mode 2</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile blue">
+                            <h3 class="title">Service 3</h3>
+                            <p>Mode 3</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile blue">
+                            <h3 class="title">Service 1</h3>
+                            <p>Mode 1</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile blue">
+                            <h3 class="title">Service 2</h3>
+                            <p>Mode 2</p>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile" align="center">
+                            <p><h1><b><span class="glyphicon glyphicon-plus"></span></h1></b></p>
+                            </a>               
+                        </div>  
+                    </div>         
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1><strong>Values:</strong></h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile green">
+                            <h3 class="title">Value 1.1</h3>
+                            <form action="/action_page.php">
+                              <input type="file" name="pic" accept="image/*">
+                              <input type="submit" style="color: black">
+                            </form>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile green">
+                            <h3 class="title">Value 1.2</h3>
+                            <form action="/action_page.php">
+                              <input type="file" name="pic" accept="image/*">
+                              <input type="submit" style="color: black">
+                            </form>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile green">
+                            <h3 class="title">Value 1.3</h3>
+                            <form action="/action_page.php">
+                              <input type="file" name="pic" accept="image/*">
+                              <input type="submit" style="color: black">
+                            </form>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile green">
+                            <h3 class="title">Value 1.4</h3>
+                            <form action="/action_page.php">
+                              <input type="file" name="pic" accept="image/*">
+                              <input type="submit" style="color: black">
+                            </form>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile green">
+                            <h3 class="title">Value 1.5</h3>
+                            <form action="/action_page.php">
+                              <input type="file" name="pic" accept="image/*">
+                              <input type="submit" style="color: black">
+                            </form>
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="http://www.ubh.com" class="tile" align="center">
+                            <p><h1><b><span class="glyphicon glyphicon-plus"></span></h1></b></p>
+                            </a>               
+                        </div>  
+                    </div>         
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>            
+</body>
