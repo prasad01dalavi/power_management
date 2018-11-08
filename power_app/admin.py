@@ -17,7 +17,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 class ServiceAdmin(admin.ModelAdmin):
     # define which columns should be displayed
-    list_display = ('created_at', 'project', 'mode')
+    list_display = ('created_at', 'project', 'name', 'mode')
 
 
 class ValueAdmin(admin.ModelAdmin):

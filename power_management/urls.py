@@ -23,4 +23,6 @@ from power_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index, name='index'),
+    path('add_service/', views.AddService.as_view())
+    # path('add_service/', views.AddService.as_view())
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

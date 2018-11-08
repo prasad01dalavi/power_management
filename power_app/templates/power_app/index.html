@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Power Management</title>
 
     <style>
@@ -111,7 +112,7 @@
                         <th><h4><b>DURATION</b></h4></th>
                         <th><h4><b>POWER IN</b></h4></th>
                         <th><h4><b>POWER OUT</b></h4></th>
-                        <th><h4><b>ENEREGY</b></h4></th>
+                        <th><h4><b>ENERGY</b></h4></th>
                     </tr>
                     <tr>
                         <td><h4>1</h4></td>
@@ -124,8 +125,8 @@
                 </table>
                 <br>
 
-
-
+                <input type="hidden" id="services" name="variable" value="{{ services }}">
+                <input type="hidden" id="services_count" name="variable" value="{{ services_count }}">
 
                 <div class="container">
                     <div class="row">
@@ -134,109 +135,60 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile blue">
-                            <h3 class="title">Service 1</h3>
-                            <p>Mode 1</p>
-                            </a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile blue">
-                            <h3 class="title">Service 2</h3>
-                            <p>Mode 2</p>
-                            </a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile blue">
-                            <h3 class="title">Service 3</h3>
-                            <p>Mode 3</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile blue">
-                            <h3 class="title">Service 1</h3>
-                            <p>Mode 1</p>
-                            </a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile blue">
-                            <h3 class="title">Service 2</h3>
-                            <p>Mode 2</p>
-                            </a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile" align="center">
-                            <p><h1><b><span class="glyphicon glyphicon-plus"></span></h1></b></p>
-                            </a>               
-                        </div>  
-                    </div>         
+                    <div id="target" class="row"></div>
+                    <script type="text/javascript">
+                      var services = JSON.parse(document.getElementById("services").value)
+                      var services_count = JSON.parse(document.getElementById("services_count").value)
+
+                      var add_tile = `<a href="http://13.233.146.96:8000/add_service/" onclick="return pop_it_up('http://13.233.146.96:8000/add_service/')" class="tile" align="center">
+                        <p><h1><b><span class="glyphicon glyphicon-plus"></span></h1></b></p>
+                        </a>`
+    
+                      for(var i=0; i<services_count; i++){
+                        var service_tile = `<a href="www.google.com" class="tile blue">
+                                    <h3 class="title">`+services[i].name+`</h3>
+                                    <p>`+services[i].mode+`</p>
+                                    </a>`;
+                        $('#target').append('<div id="r'+ i +'" class="col-sm-4">'+service_tile+'</div>')
+                      }
+                      $('#target').append('<div id="add_tile'+'" class="col-sm-4">'+add_tile+'</div>')
+                    
+
+                      function pop_it_up(url) {
+                        newwindow=window.open(url,'name','height=400,width=600');
+                        if (window.focus) {newwindow.focus()}
+                          return false;
+                      }
+                    </script>
                 </div>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1><strong>Values:</strong></h1>
-                        </div>
-                    </div>
+                <hr>
 
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile green">
-                            <h3 class="title">Value 1.1</h3>
-                            <form action="/action_page.php">
-                              <input type="file" name="pic" accept="image/*">
-                              <input type="submit" style="color: black">
-                            </form>
-                            </a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile green">
-                            <h3 class="title">Value 1.2</h3>
-                            <form action="/action_page.php">
-                              <input type="file" name="pic" accept="image/*">
-                              <input type="submit" style="color: black">
-                            </form>
-                            </a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile green">
-                            <h3 class="title">Value 1.3</h3>
-                            <form action="/action_page.php">
-                              <input type="file" name="pic" accept="image/*">
-                              <input type="submit" style="color: black">
-                            </form>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile green">
-                            <h3 class="title">Value 1.4</h3>
-                            <form action="/action_page.php">
-                              <input type="file" name="pic" accept="image/*">
-                              <input type="submit" style="color: black">
-                            </form>
-                            </a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile green">
-                            <h3 class="title">Value 1.5</h3>
-                            <form action="/action_page.php">
-                              <input type="file" name="pic" accept="image/*">
-                              <input type="submit" style="color: black">
-                            </form>
-                            </a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="http://www.ubh.com" class="tile" align="center">
-                            <p><h1><b><span class="glyphicon glyphicon-plus"></span></h1></b></p>
-                            </a>               
-                        </div>  
-                    </div>         
+                <div id="target2">
+                  <button onclick="now_do_it()">Click me</button>
+                  <div id="target3">
+                  
+                   <!-- all divs will append here -->
                 </div>
+                </div>
+
+                <script type="text/javascript">
+
+                  // function now_do_it(){
+                  //   $('#target2').remove();
+                  //   for(var i =1; i<= 10; i++){
+                  //       $('#target2').append('<div class="row"><p>hey</p></div>')
+                  //     }
+                  // }
+ 
+
+                  function now_do_it() {
+
+                    $('#target3').append('<div class="row"><p>hey</p></div>');
+
+                    counter++;    
+                  }
+                </script>
 
 
 
