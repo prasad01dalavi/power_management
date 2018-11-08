@@ -100,100 +100,127 @@
 </head>
 
 <body>
-    <br>
-    <div class="container">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><h1>Power Management</h1></div>
-            <div class="panel-body">
-                <table>
-                    <tr>
-                        <th><h4><b>SR.NO.</b></h4></th>
-                        <th><h4><b>PROJECT NAME</b></h4></th>
-                        <th><h4><b>DURATION</b></h4></th>
-                        <th><h4><b>POWER IN</b></h4></th>
-                        <th><h4><b>POWER OUT</b></h4></th>
-                        <th><h4><b>ENERGY</b></h4></th>
-                    </tr>
-                    <tr>
-                        <td><h4>1</h4></td>
-                        <td><h4>Project 1</h4></td>
-                        <td><h4>30</h4></td>
-                        <td><h4>10</h4></td>
-                        <td><h4>20</h4></td>
-                        <td><h4>100</h4></td>
-                    </tr>
-                </table>
-                <br>
+  <br>
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h1>Power Management</h1></div>
+      <div class="panel-body">
+          <table>
+              <tr>
+                  <th><h4><b>SR.NO.</b></h4></th>
+                  <th><h4><b>PROJECT NAME</b></h4></th>
+                  <th><h4><b>DURATION</b></h4></th>
+                  <th><h4><b>POWER IN</b></h4></th>
+                  <th><h4><b>POWER OUT</b></h4></th>
+                  <th><h4><b>ENERGY</b></h4></th>
+              </tr>
+              <tr>
+                  <td><h4>1</h4></td>
+                  <td><h4>Project 1</h4></td>
+                  <td><h4>30</h4></td>
+                  <td><h4>10</h4></td>
+                  <td><h4>20</h4></td>
+                  <td><h4>100</h4></td>
+              </tr>
+          </table>
+          <br>
 
-                <input type="hidden" id="services" name="variable" value="{{ services }}">
-                <input type="hidden" id="services_count" name="variable" value="{{ services_count }}">
+          <input type="hidden" id="services" name="variable" value="{{ services }}">
+          <input type="hidden" id="services_count" name="variable" value="{{ services_count }}">
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1><strong>Service List:</strong></h1>
-                        </div>
-                    </div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <h1><strong>Service List:</strong></h1>
+                  </div>
+              </div>
 
-                    <div id="target" class="row"></div>
-                    <script type="text/javascript">
-                      var services = JSON.parse(document.getElementById("services").value)
-                      var services_count = JSON.parse(document.getElementById("services_count").value)
+              <div id="target1" class="row"></div>
+              <script type="text/javascript">
+                var services = JSON.parse(document.getElementById("services").value)
+                var services_count = JSON.parse(document.getElementById("services_count").value)
 
-                      var add_tile = `<a href="http://13.233.146.96:8000/add_service/" onclick="return pop_it_up('http://13.233.146.96:8000/add_service/')" class="tile" align="center">
-                        <p><h1><b><span class="glyphicon glyphicon-plus"></span></h1></b></p>
-                        </a>`
-    
-                      for(var i=0; i<services_count; i++){
-                        var service_tile = `<a href="www.google.com" class="tile blue">
-                                    <h3 class="title">`+services[i].name+`</h3>
-                                    <p>`+services[i].mode+`</p>
-                                    </a>`;
-                        $('#target').append('<div id="r'+ i +'" class="col-sm-4">'+service_tile+'</div>')
-                      }
-                      $('#target').append('<div id="add_tile'+'" class="col-sm-4">'+add_tile+'</div>')
-                    
+                var add_tile = `<a href="http://13.233.146.96:8000/add_service/" onclick="return pop_it_up('http://localhost:8000/add_service/')" class="tile" align="center">
+                  <p><h1><b><span class="glyphicon glyphicon-plus"></span></h1></b></p></a>`
 
-                      function pop_it_up(url) {
-                        newwindow=window.open(url,'name','height=400,width=600');
-                        if (window.focus) {newwindow.focus()}
-                          return false;
-                      }
-                    </script>
-                </div>
+                for(var i=0; i<services_count; i++){
+          
+                  var service_tile = `<a href="#" class="tile blue">
+                                      <h3 class="title">`+services[i].name+`</h3>
+                                      <p>`+services[i].mode+`</p>
+                                      </a>`;
+                  $('#target1').append('<div id="r'+ i +'" onclick=showValues('+i+') class="col-sm-4">'+service_tile+'</div>')
+                }
+                $('#target1').append('<div id="add_tile'+'" class="col-sm-4">'+add_tile+'</div>')
+              
 
-                <hr>
+                function pop_it_up(url) {
+                  newwindow=window.open(url,'name','height=400,width=600');
+                  if (window.focus) {newwindow.focus()}
+                    return false;
+                }
+              </script>
 
-                <div id="target2">
-                  <button onclick="now_do_it()">Click me</button>
-                  <div id="target3">
-                  
-                   <!-- all divs will append here -->
-                </div>
-                </div>
+          </div>
 
-                <script type="text/javascript">
+          <hr>
 
-                  // function now_do_it(){
-                  //   $('#target2').remove();
-                  //   for(var i =1; i<= 10; i++){
-                  //       $('#target2').append('<div class="row"><p>hey</p></div>')
-                  //     }
-                  // }
- 
-
-                  function now_do_it() {
-
-                    $('#target3').append('<div class="row"><p>hey</p></div>');
-
-                    counter++;    
-                  }
-                </script>
-
-
-
-
+          <div class="container">
+            <div id="service_name" class="row">
+              
             </div>
-        </div>
-    </div>            
+
+            <div id="target2" class="row"></div>    
+            <script type="text/javascript">   
+              // get the values for the selected service         
+              function showValues(value){
+
+                $('#info').remove();
+                $('#service_name').append('<div id="info" class="col-md-12"><h1><strong>Values for '+services[value].name+':</strong></h1></div>')   
+        
+                var service_id = value+1
+ 
+                $.post("http://13.233.146.96:8000/get_values/", {"service_id": service_id}, 
+                      function(response){
+                  var values = response.length       
+
+                  for(var i=0; i<10; i++){
+                    $('#values').remove();
+                    $('#add_value_tile').remove();
+
+                  }
+ 
+                  if (response[0].name == 'no_values'){
+                    alert('No Values for this Service!')
+                    $('#add_value_tile').remove();
+                    var add_value_tile = `<a href="http://13.233.146.96:8000/add_value/?id=`+service_id+`" onclick="return pop_it_up('http://13.233.146.96:8000/add_value/?id=`+service_id+`)" class="tile" align="center">
+                      <p><h1><b><span class="glyphicon glyphicon-plus"></span></h1></b></p></a>`
+                      
+                    $('#target2').append('<div id="add_value_tile'+'" class="col-sm-4">'+add_value_tile+'</div>')
+                    return;
+                  }
+
+                  var add_tile = `<a href="http://13.233.146.96:8000/add_value/?id=`+service_id+`" onclick="return pop_it_up('http://13.233.146.96:8000/add_value/?id=`+service_id+`)" class="tile" align="center">
+                  <p><h1><b><span class="glyphicon glyphicon-plus"></span></h1></b></p></a>`
+ 
+                  for(var i=0; i<values; i++){
+                    var value_tile = `<a href="http://13.233.146.96:8000/admin/power_app/value/"
+                                class="tile green">
+                                <h3 class="title">`+response[i].name+`</h3>
+                                <h3 class="title">`+response[i].formula +`</h3>
+                                </a>`
+                    
+                    $('#target2').append('<div id="values" class="col-sm-4">'+value_tile+'</div>')
+                  }
+                  $('#target2').append('<div id="add_value_tile'+'" class="col-sm-4">'+add_tile+'</div>')
+                });               
+              }
+            </script> 
+
+
+
+
+      </div>
+    </div>
+  </div>            
 </body>

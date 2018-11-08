@@ -20,9 +20,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from power_app import views
 
+admin.site.site_header = 'Power Management'
+admin.site.index_title = 'Power Management'
+admin.site.site_title = 'Power Management'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', views.index, name='index'),
-    path('add_service/', views.AddService.as_view())
+    path('', views.index, name='index'),
+    path('add_service/', views.AddService.as_view()),
+    path('get_values/', views.GetValues.as_view()),
+    path('add_value/', views.AddValue.as_view())
     # path('add_service/', views.AddService.as_view())
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
